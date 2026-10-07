@@ -1,0 +1,80 @@
+{
+  "name": "oidc-rbac",
+  "version": "0.1.0",
+  "description": "A lightweight OpenID Connect provider with role-based access control: Authorization Code + PKCE, rotating refresh tokens, JWT access tokens carrying roles.",
+  "keywords": [
+    "oidc",
+    "openid-connect",
+    "oauth2",
+    "rbac",
+    "pkce",
+    "jwt",
+    "jwks",
+    "identity-provider",
+    "authorization",
+    "express"
+  ],
+  "license": "MIT",
+  "author": "Bruno Fischetti",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bfischetti/oidc-rbac.git",
+    "directory": "packages/oidc-rbac"
+  },
+  "homepage": "https://github.com/bfischetti/oidc-rbac/tree/main/packages/oidc-rbac#readme",
+  "bugs": {
+    "url": "https://github.com/bfischetti/oidc-rbac/issues"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "bin": {
+    "oidc-rbac": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./sqlite": {
+      "source": "./src/sqlite.ts",
+      "types": "./dist/sqlite.d.ts",
+      "default": "./dist/sqlite.js"
+    },
+    "./postgres": {
+      "source": "./src/postgres.ts",
+      "types": "./dist/postgres.d.ts",
+      "default": "./dist/postgres.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "jose": "^6.1.0",
+    "zod": "^4.1.0"
+  },
+  "peerDependencies": {
+    "pg": "^8.11.0"
+  },
+  "peerDependenciesMeta": {
+    "pg": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/pg": "^8.15.0",
+    "pg": "^8.16.0"
+  }
+}
