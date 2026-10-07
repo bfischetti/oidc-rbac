@@ -1,0 +1,57 @@
+{
+  "name": "oidc-rbac-express",
+  "version": "0.1.0",
+  "description": "Express middleware that verifies OIDC Access Tokens and enforces role-based permissions. Pairs with oidc-rbac, works with any provider that puts roles in the token.",
+  "keywords": [
+    "oidc",
+    "rbac",
+    "express",
+    "middleware",
+    "jwt",
+    "access-token",
+    "permissions",
+    "authorization"
+  ],
+  "license": "MIT",
+  "author": "Bruno Fischetti",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bfischetti/oidc-rbac.git",
+    "directory": "packages/oidc-rbac-express"
+  },
+  "homepage": "https://github.com/bfischetti/oidc-rbac/tree/main/packages/oidc-rbac-express#readme",
+  "bugs": {
+    "url": "https://github.com/bfischetti/oidc-rbac/issues"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --sourcemap --clean --target node20",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "jose": "^6.1.0"
+  },
+  "peerDependencies": {
+    "express": "^4.18.0 || ^5.0.0"
+  },
+  "devDependencies": {
+    "express": "^5.1.0"
+  }
+}
