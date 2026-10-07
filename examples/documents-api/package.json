@@ -1,0 +1,12 @@
+{
+  "name": "@oidc-rbac/example-documents-api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "tsx --conditions=source src/server.ts"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "oidc-rbac-express": "*"
+  }
+}

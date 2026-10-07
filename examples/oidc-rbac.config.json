@@ -1,0 +1,15 @@
+{
+  "issuer": "http://localhost:4000",
+  "audience": "documents-api",
+  "store": { "type": "memory" },
+  "rateLimit": false,
+  "users": [
+    { "sub": "u-alice", "username": "alice", "passwordHash": "scrypt$Gj6kSwL9ppWV3xXhZPU3Hg$JUuiOae0-MaFb8aKrNqaKdx9gbbsRt20pEyPDnTmHl0", "name": "Alice Admin", "email": "alice@example.com", "roles": ["admin"] },
+    { "sub": "u-bob", "username": "bob", "passwordHash": "scrypt$nifIYwd8RAVG6e4A2aHyfw$Iv6VRqIAH1u0i6g8stUmRwQpOPC4PN8sJaBmk3IzjOM", "name": "Bob Editor", "email": "bob@example.com", "roles": ["editor"] },
+    { "sub": "u-carol", "username": "carol", "passwordHash": "scrypt$SGjM8SeFC4eDqpd0q_BDsQ$M8O2X8mM11KE-uERfn6_Ep3Uqc7d2Le-po3XiFJGFO4", "name": "Carol Viewer", "email": "carol@example.com", "roles": ["viewer"] }
+  ],
+  "clients": [
+    { "clientId": "console", "name": "oidc-rbac Console", "secretHash": "scrypt$9xpazgCs_RGE8hUWtuLoyQ$rWQs8PhoJ8VMXfJ-PYdtBzTYArBezzLWjAHRBRHfh4g", "redirectUris": ["http://localhost:4002/callback"] },
+    { "clientId": "public-app", "name": "Public App", "redirectUris": ["http://localhost:4003/callback"] }
+  ]
+}
