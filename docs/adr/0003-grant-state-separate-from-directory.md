@@ -1,0 +1,3 @@
+# The Store holds only grant state; Users and Clients come from a directory
+
+The provider's `Store` keeps only short-lived grant state (Authorization Codes and Refresh Tokens, stored as hashes). Users and Clients come from a `UserSource` and `ClientSource`: the config file by default, or the host application's own database when embedded. We chose this so adopters can plug in their existing user table without migrating it into our schema, and so storage backends stay two tables. The cost is that the standalone server has no admin API for managing users at runtime; changes to the config file need a restart.
