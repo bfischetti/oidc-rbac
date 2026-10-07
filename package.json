@@ -1,0 +1,25 @@
+{
+  "name": "oidc-rbac-monorepo",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -p none \"npm run provider\" \"npm run start -w @oidc-rbac/example-documents-api\" \"npm run start -w @oidc-rbac/example-console\"",
+    "provider": "tsx --conditions=source packages/oidc-rbac/src/cli.ts start --config examples/oidc-rbac.config.json",
+    "build": "npm run build -w oidc-rbac -w oidc-rbac-express",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.0",
+    "concurrently": "^9.2.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0",
+    "tsup": "^8.5.0"
+  }
+}

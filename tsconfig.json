@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": true,
+    "types": [
+      "node"
+    ],
+    "customConditions": [
+      "source"
+    ]
+  },
+  "include": [
+    "packages/*/src",
+    "packages/*/test",
+    "examples/*/src",
+    "test"
+  ]
+}
